@@ -14,9 +14,7 @@ will make the server extremely slow and the webpage will take unbearable
 time to load.
 
 The tool contains a user agents text file which ensures that the requests are
-different everytime inorder to bypass weak firewalls. Other than that
-it also contains a proxy text file which prevents server from blocking a 
-specific ip. And the proxy and useragents are selected randlomly so the obfuscation is ensured.
+different everytime inorder to bypass weak firewalls.
 
 
 # Requirements
@@ -34,5 +32,4 @@ specific ip. And the proxy and useragents are selected randlomly so the obfuscat
 
 `python juggernaut.py`
 
-#### The interface of this software is extremely simple so I don't think
-#### there is a need to explain that
+#### The interface of this software is extremely simple so I don't think there is a need to explain that
