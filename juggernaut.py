@@ -4,6 +4,8 @@ import requests
 import threading
 import random
 
+BL = '\033[34m' # blue
+P = '\033[35m' # purple
 R = '\033[31m'  # red
 G = '\033[32m'  # green
 C = '\033[36m'  # cyan
@@ -11,7 +13,7 @@ W = '\033[0m'  # white
 Y = '\033[33m'  # yellow
 B = '\033[1m'  # bold
 NB = '\033[0m'  # not bold
-colors = [G, C, R]
+colors = [G, C, R, P, BL]
 
 banner = f'''{random.choice(colors)}
      ██╗ ██╗   ██╗  ██████╗   ██████╗  ███████╗ ██████╗  ███╗   ██╗  █████╗  ██╗   ██╗ ████████╗
@@ -20,8 +22,7 @@ banner = f'''{random.choice(colors)}
 ██   ██║ ██║   ██║ ██║   ██║ ██║   ██║ ██╔══╝   ██╔══██╗ ██║╚██╗██║ ██╔══██║ ██║   ██║    ██║   
 ╚█████╔╝ ╚██████╔╝ ╚██████╔╝ ╚██████╔╝ ███████╗ ██║  ██║ ██║ ╚████║ ██║  ██║ ╚██████╔╝    ██║   
  ╚════╝   ╚═════╝   ╚═════╝   ╚═════╝  ╚══════╝ ╚═╝  ╚═╝ ╚═╝  ╚═══╝ ╚═╝  ╚═╝  ╚═════╝     ╚═╝   
-
-version 1.0{W}                                                                                                                            
+{W}                                                                                                                            
 '''
 print(banner)
 
@@ -33,7 +34,7 @@ def kill_program(signum, frame):
 signal.signal(signal.SIGINT, kill_program)
 
 def load_agents():
-    file = open("headers.txt")
+    file = open("agents.txt")
     lines = file.readlines()
     for i in range(len(lines)):
         lines[i] = lines[i][:-2]
