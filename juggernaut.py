@@ -3,6 +3,7 @@ import signal
 import requests
 import threading
 import random
+import readline
 
 BL = '\033[34m' # blue
 P = '\033[35m' # purple
